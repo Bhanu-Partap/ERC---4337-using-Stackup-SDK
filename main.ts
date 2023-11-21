@@ -1,5 +1,6 @@
 import { ethers } from 'ethers';
 import { Presets, Client } from 'userop';
+require('dotenv').config();
 
 const rpcUrl = 'https://public.stackup.sh/api/v1/node/ethereum-sepolia';
 const paymasterUrl = 'https://api.stackup.sh/v1/paymaster/https://api.stackup.sh/v1/paymaster/c713cd6b5ac9196b897e0e69c5be6951f3f18b3ca763fd7cd346310b9ddfdd3e'; // Optional - you can get one at https://app.stackup.sh/
@@ -20,8 +21,7 @@ async function main() {
       };
 
   // Initialize the account
-  const signingKey =
-    '0x56fe1fd10f0203c190640fb0bad78e9bf29d10fc2fbc97ee1ff49ee4acd2d08a';
+  const signingKey =process.env.SIGNINKEY;
   const signer = new ethers.Wallet(signingKey);
   var builder = await Presets.Builder.SimpleAccount.init(signer, rpcUrl, opts);
   const address = builder.getSender();
@@ -29,7 +29,7 @@ async function main() {
 
   // Create the call data
   const to = address; // Receiving address, in this case we will send it to ourselves
-  const token = "0x3870419Ba2BBf0127060bCB37f69A1b1C090992B"; // Address of the ERC-20 token
+  const token = "0"; // Address of the ERC-20 token
   const value = "0"; // Amount of the ERC-20 token to transfer
 
   // Read the ERC-20 token contract
