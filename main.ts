@@ -2,9 +2,11 @@ import { ethers } from 'ethers';
 import { Presets, Client } from 'userop';
 require('dotenv').config();
 
-const rpcUrl = 'https://public.stackup.sh/api/v1/node/ethereum-sepolia';
-const paymasterUrl = 'https://api.stackup.sh/v1/paymaster/https://api.stackup.sh/v1/paymaster/c713cd6b5ac9196b897e0e69c5be6951f3f18b3ca763fd7cd346310b9ddfdd3e'; // Optional - you can get one at https://app.stackup.sh/
-const provider = new ethers.providers.JsonRpcProvider('https://sepolia.infura.io/v3/9a8614ca9a11412aaab9734cdde0cd29');
+// const rpcUrl: string | undefined = process.env.RPC_URL;
+const rpcUrl= process.env.RPC_URL;
+// const paymasterUrl: string | undefined = process.env.PAYMASTER_RPC_URL;
+const paymasterUrl = process.env.PAYMASTER_RPC_URL;
+const provider = new ethers.providers.JsonRpcProvider(process.env.PROVIDER);
 
 async function main() {
 
