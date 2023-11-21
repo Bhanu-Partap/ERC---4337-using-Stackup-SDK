@@ -21,9 +21,9 @@ const paymasterUrl = "https://api.stackup.sh/v1/paymaster/9e66cca810f32e887ea75f
 
 // Extend the Ethereum Foundation's account-abstraction/sdk's basic paymaster
 class VerifyingPaymasterAPI extends PaymasterAPI {
-  private paymasterUrl: string;
+  private paymasterUrl: any;
   private entryPoint: string;
-  constructor(paymasterUrl: string, entryPoint: string) {
+  constructor(paymasterUrl: any, entryPoint: string) {
     super();
     this.paymasterUrl = paymasterUrl;
     this.entryPoint = entryPoint;

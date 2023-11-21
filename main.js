@@ -1,3 +1,5 @@
+"use strict";
+exports.__esModule = true;
 /* import { ethers } from 'ethers';
 import { Presets, Client } from 'userop';
 // require('dotenv').config();
@@ -14,28 +16,23 @@ const rpcUrl= config.rpcUrl;
 // const paymasterUrl: string | undefined = process.env.PAYMASTER_RPC_URL;
 const paymasterUrl = config.paymasterUrl;
 const provider = new ethers.providers.JsonRpcProvider(config.provider_data); */
-import { ethers } from 'ethers';
-import { Presets, Client } from 'userop';
-import * as dotenv from 'dotenv';
+var ethers_1 = require("ethers");
+var dotenv = require("dotenv");
 dotenv.config();
-
-const config = {
-  rpcUrl: process.env.RPC_URL,
-  paymasterUrl: process.env.PAYMASTER_RPC_URL,
-  provider_data: process.env.PROVIDER
-}
-
-const rpcUrl = config.rpcUrl;
-const paymasterUrl = config.paymasterUrl;
-
-let provider: ethers.providers.JsonRpcProvider | undefined;
-
+var config = {
+    rpcUrl: process.env.RPC_URL,
+    paymasterUrl: process.env.PAYMASTER_RPC_URL,
+    provider_data: process.env.PROVIDER
+};
+var rpcUrl = config.rpcUrl;
+var paymasterUrl = config.paymasterUrl;
+var provider;
 if (config.provider_data) {
-  provider = new ethers.providers.JsonRpcProvider(config.provider_data);
-} else {
-  console.error('Provider data is undefined.');
+    provider = new ethers_1.ethers.providers.JsonRpcProvider(config.provider_data);
 }
-
+else {
+    console.error('Provider data is undefined.');
+}
 /* async function main() {
 
   const paymasterContext = { type: 'payg' };
@@ -52,7 +49,7 @@ if (config.provider_data) {
 
   // Initialize the account
   const signingKey =process.env.SIGNINKEY;
-  // console.log(signingKey); 
+  // console.log(signingKey);
   const signer = new ethers.Wallet(signingKey);
   var builder = await Presets.Builder.SimpleAccount.init(signer, rpcUrl, opts);
   const address = builder.getSender();
@@ -72,7 +69,7 @@ if (config.provider_data) {
   // Encode the calls
   const callTo = [token, token];
   const callData = [erc20.interface.encodeFunctionData("approve", [to, amount]),
-  erc20.interface.encodeFunctionData("transfer", [to, amount])] 
+  erc20.interface.encodeFunctionData("transfer", [to, amount])]
 
   // Send the User Operation to the ERC-4337 mempool
   const client = await Client.init(rpcUrl);
@@ -90,5 +87,4 @@ if (config.provider_data) {
 
 main().catch((err) => console.error('Error:', err));
  */
-
 console.log(paymasterUrl);
