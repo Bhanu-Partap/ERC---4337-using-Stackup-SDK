@@ -22,6 +22,7 @@ async function main() {
 
   // Initialize the account
   const signingKey =process.env.SIGNINKEY;
+  // console.log(signingKey); 
   const signer = new ethers.Wallet(signingKey);
   var builder = await Presets.Builder.SimpleAccount.init(signer, rpcUrl, opts);
   const address = builder.getSender();
