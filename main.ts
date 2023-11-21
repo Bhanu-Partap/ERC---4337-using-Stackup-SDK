@@ -1,42 +1,49 @@
-/* import { ethers } from 'ethers';
+
+
+//=====    ====== //
+// import { ethers } from 'ethers';
+// import { Presets, Client } from 'userop';
+// import * as dotenv from 'dotenv';
+// dotenv.config();
+
+// const config = {
+//   rpcUrl: process.env.RPC_URL,
+//   paymasterUrl: process.env.PAYMASTER_RPC_URL,
+//   provider_data: process.env.PROVIDER
+// }
+
+// const rpcUrl = config.rpcUrl;
+// const paymasterUrl = config.paymasterUrl;
+
+// let provider: ethers.providers.JsonRpcProvider | undefined;
+
+// if (config.provider_data) {
+//   provider = new ethers.providers.JsonRpcProvider(config.provider_data);
+// } else {
+//   console.error('Provider data is undefined.');
+// }
+
+
+
+import { ethers } from 'ethers';
 import { Presets, Client } from 'userop';
 // require('dotenv').config();
 import * as dotenv from 'dotenv';
 dotenv.config();
 
-const config = {
-  rpcUrl: process.env.RPC_URL,
-  paymasterUrl: process.env.PAYMASTER_RPC_URL,
-  provider_data: process.env.PROVIDER
-}
+// const config = {
+//   rpcUrl: process.env.RPC_URL,
+//   paymasterUrl: process.env.PAYMASTER_RPC_URL,
+//   provider_data: process.env.PROVIDER
+// }
 // const rpcUrl: string | undefined = process.env.RPC_URL;
-const rpcUrl= config.rpcUrl;
 // const paymasterUrl: string | undefined = process.env.PAYMASTER_RPC_URL;
-const paymasterUrl = config.paymasterUrl;
-const provider = new ethers.providers.JsonRpcProvider(config.provider_data); */
-import { ethers } from 'ethers';
-import { Presets, Client } from 'userop';
-import * as dotenv from 'dotenv';
-dotenv.config();
+const rpcUrl= "https://api.stackup.sh/v1/node/c713cd6b5ac9196b897e0e69c5be6951f3f18b3ca763fd7cd346310b9ddfdd3e";
+const paymasterUrl = "https://api.stackup.sh/v1/paymaster/c713cd6b5ac9196b897e0e69c5be6951f3f18b3ca763fd7cd346310b9ddfdd3e";
+const provider = new ethers.providers.JsonRpcProvider("https://sepolia.infura.io/v3/9a8614ca9a11412aaab9734cdde0cd29"); 
 
-const config = {
-  rpcUrl: process.env.RPC_URL,
-  paymasterUrl: process.env.PAYMASTER_RPC_URL,
-  provider_data: process.env.PROVIDER
-}
 
-const rpcUrl = config.rpcUrl;
-const paymasterUrl = config.paymasterUrl;
-
-let provider: ethers.providers.JsonRpcProvider | undefined;
-
-if (config.provider_data) {
-  provider = new ethers.providers.JsonRpcProvider(config.provider_data);
-} else {
-  console.error('Provider data is undefined.');
-}
-
-/* async function main() {
+async function main() {
 
   const paymasterContext = { type: 'payg' };
   const paymasterMiddleware = Presets.Middleware.verifyingPaymaster(
@@ -51,7 +58,7 @@ if (config.provider_data) {
       };
 
   // Initialize the account
-  const signingKey =process.env.SIGNINKEY;
+  const signingKey ="0x";
   // console.log(signingKey); 
   const signer = new ethers.Wallet(signingKey);
   var builder = await Presets.Builder.SimpleAccount.init(signer, rpcUrl, opts);
@@ -89,6 +96,5 @@ if (config.provider_data) {
 }
 
 main().catch((err) => console.error('Error:', err));
- */
 
-console.log(paymasterUrl);
+
