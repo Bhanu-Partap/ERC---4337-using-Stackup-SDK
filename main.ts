@@ -29,7 +29,7 @@ async function main() {
 
   // Create the call data
   const to = address; // Receiving address, in this case we will send it to ourselves
-  const token = "0"; // Address of the ERC-20 token
+  const token = "0x3938Ac4C25454F65F62292b748a105d70bA5D71f"; // Address of the ERC-20 token
   const value = "0"; // Amount of the ERC-20 token to transfer
 
   // Read the ERC-20 token contract
