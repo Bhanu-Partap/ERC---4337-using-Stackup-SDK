@@ -41,11 +41,11 @@ async function main() {
   // Encode the calls
   const callTo = [token, token];
   const callData = [erc20.interface.encodeFunctionData("approve", [to, amount]),
-  erc20.interface.encodeFunctionData("transfer", [to, amount])]
+  erc20.interface.encodeFunctionData("transfer", [to, amount])] 
 
   // Send the User Operation to the ERC-4337 mempool
   const client = await Client.init(rpcUrl);
-  const res = await client.sendUserOperation(builder.setCallData('0x'), {
+  const res = await client.sendUserOperation(builder.executeBatch(callTo, callData), {
     onBuild: (op) => console.log('Signed UserOperation:', op),
   });
 
