@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "npx ts-node main.ts",
     "account-abstraction-sdk": "npx ts-node ./examples/account-abstraction-sdk-example.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "init": "some-command"
   },
   "keywords": [],
   "author": "",
